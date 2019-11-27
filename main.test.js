@@ -61,7 +61,7 @@ describe('Queue', () => {
     expect(queue.items.length).toBe(0);
   })
 
-  it(`has an add method that adds an to the back of the queue`, () => {
+  it(`has an add method that adds an item to the back of the queue`, () => {
     queue.add('Colin');
     expect(queue.items[0]).toBe('Colin')
     queue.add('Mesuara');
