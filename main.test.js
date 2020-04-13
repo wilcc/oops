@@ -31,10 +31,7 @@ describe('Stack', () => {
   })
 
   it(`has a remove function that removes and returns from the top of the stack`, () => {
-    stack.add('Colin')
-    stack.add('Mess')
-    stack.add('JD')
-    stack.add('Ginny')
+    stack.items = ['Colin', 'Mess', 'JD', 'Ginny'];
     expect(stack.remove()).toBe('Ginny')
     expect(stack.remove()).toBe('JD')
     expect(stack.remove()).toBe('Mess')
@@ -42,11 +39,9 @@ describe('Stack', () => {
   })
 
   it(`has a peek function that returns the item on the top of stack without removing it`, () => {
-    stack.add('Colin')
-    stack.add('Mess')
-    stack.add('JD')
+    stack.items = ['Colin', 'Mess', 'JD'];
     expect(stack.peek()).toBe('JD')
-    stack.add('Ginny')
+    stack.items.push('Ginny');
     expect(stack.peek()).toBe('Ginny')
   })
 })
@@ -61,7 +56,7 @@ describe('Queue', () => {
     expect(queue.items.length).toBe(0);
   })
 
-  it(`has an add method that adds an item to the back of the queue`, () => {
+  it(`has an add method that adds an to the back of the queue`, () => {
     queue.add('Colin');
     expect(queue.items[0]).toBe('Colin')
     queue.add('Mesuara');
@@ -71,19 +66,18 @@ describe('Queue', () => {
   })
 
   it(`has a remove method that removes and returns from the front of the queue`, () => {
-    queue.add('Colin');
-    queue.add('JD');
-    queue.add('Mesuara');
+    queue.items = ['Colin', 'JD', 'Mesuara'];
     const nextInLine = queue.remove();
     expect(nextInLine).toBe('Colin')
     expect(queue.items[0]).toBe('JD')
+    expect(queue.items[1]).toBe('Mesuara')
   })
 
   it(`has a peek method that returns but does not remove the next in line`, () => {
-    queue.add('Colin');
+    queue.items = ['Colin'];
     expect(queue.peek()).toBe('Colin')
-    queue.add('JD');
-    queue.add('Mesuara');
+    queue.items.push('JD');
+    queue.items.push('Mesuara');
     expect(queue.peek()).toBe('Colin')
   })
 })
